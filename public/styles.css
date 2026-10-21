@@ -1831,3 +1831,13 @@ h1, h2, h3, h4, h5, h6 {
 .price-container {
   flex-wrap: wrap;
 }
+
+/* Acceso discreto al panel de edicion */
+.admin-link {
+  margin-left: 0.4rem;
+  opacity: 0.25;
+  transition: opacity 0.2s;
+}
+.admin-link:hover, .admin-link:focus-visible {
+  opacity: 0.9;
+}
