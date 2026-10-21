@@ -1,0 +1,22 @@
+{
+  "name": "injer-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio de INJER S.A.S. con panel de edicion (Cloudflare Workers + D1)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:configurar": "node scripts/configurar-db.mjs",
+    "db:schema:local": "wrangler d1 execute injer-db --local --file=schema.sql",
+    "db:schema": "wrangler d1 execute injer-db --remote --file=schema.sql",
+    "seed:local": "node scripts/seed.mjs --local",
+    "seed": "node scripts/seed.mjs --remote",
+    "clave": "node scripts/hash-password.mjs",
+    "clave:dev": "node scripts/hash-password.mjs --dev",
+    "test": "node scripts/test.mjs"
+  },
+  "devDependencies": {
+    "node-html-parser": "^6.1.13",
+    "wrangler": "^4.0.0"
+  }
+}

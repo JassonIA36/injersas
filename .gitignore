@@ -1,6 +1,9 @@
+node_modules/
+.dev.vars
+.wrangler/
+scripts/seed.generated.sql
 .DS_Store
 Thumbs.db
-node_modules/
 *.log
 .vscode/
 .idea/

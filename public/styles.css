@@ -541,7 +541,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   padding: 6rem 0 5rem 0;
-  background-image: url('./assets/hero.jpg');
+  background-image: var(--hero-bg, url('./assets/hero.jpg'));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1819,4 +1819,15 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 1.2rem;
   }
+}
+
+/* Correccion movil: los <select> largos del cotizador ensanchaban toda la pagina en celulares */
+.calculator-wrapper > *, .contact-grid > *, .form-row > *, .form-group {
+  min-width: 0;
+}
+.form-control {
+  max-width: 100%;
+}
+.price-container {
+  flex-wrap: wrap;
 }

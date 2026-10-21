@@ -4,6 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Numero de WhatsApp: lo define el panel de edicion (atributo data-wa del body)
+  const WA_NUMBER = document.body.dataset.wa || '573205931159';
+
   // 1. Current Year in Footer
   const yearEl = document.getElementById('currentYear');
   if (yearEl) {
@@ -197,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `💰 *Valor Estimado Referencial:* COP $${encodeURIComponent(quote.totalFormatted)}%0A%0A` +
         `Hola ingenieros, quisiera coordinar una visita técnica o validar la cotización definitiva.`;
 
-      const whatsappUrl = `https://wa.me/573205931159?text=${message}`;
+      const whatsappUrl = `https://wa.me/${WA_NUMBER}?text=${message}`;
       window.open(whatsappUrl, '_blank');
     });
   }
@@ -235,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `📝 *Detalles:* ${encodeURIComponent(message)}`;
 
       setTimeout(() => {
-        const url = `https://wa.me/573205931159?text=${text}`;
+        const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
         window.open(url, '_blank');
       }, 700);
 

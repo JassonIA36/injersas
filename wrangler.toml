@@ -1,0 +1,22 @@
+name = "injer-web"
+main = "src/worker.js"
+compatibility_date = "2025-06-01"
+
+# Archivos estaticos (CSS, JS, fotos originales). El Worker atiende primero
+# todas las peticiones para poder inyectar el contenido de D1 en el HTML.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+html_handling = "none"
+not_found_handling = "none"
+
+# El database_id lo escribe solo "npm run db:configurar" (ver GUIA.md)
+[[d1_databases]]
+binding = "DB"
+database_name = "injer-db"
+database_id = "89d75279-84d2-497e-a862-35f7ab458bc1"
+
+# Secrets (NO van aqui; se ponen con "wrangler secret put"):
+#   ADMIN_PASSWORD_HASH  hash PBKDF2 de la clave (se genera con "npm run clave")
+#   SESSION_SECRET       texto aleatorio largo

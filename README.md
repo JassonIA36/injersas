@@ -29,27 +29,29 @@ Sitio web oficial corporativo de **INJER S.A.S.**, empresa de ingeniería y topo
 ## 📁 Estructura del Proyecto
 
 ```text
-├── index.html           # Estructura semántica completa del sitio
-├── styles.css           # Estilos modernos, responsive design y variables CSS
-├── script.js            # Lógica interactiva, cotizador y theme switcher
-├── assets/
-│   ├── logo.jpg         # Logotipo oficial original de Facebook
-│   ├── hero.jpg         # Fotografía principal de estación total y topografía
-│   ├── drone.jpg        # Fotogrametría y modelado digital de elevación
-│   └── civil.jpg        # Control e inspección de obra civil
-└── README.md            # Documentación del proyecto
+├── public/                 # El sitio (diseño)
+│   ├── index.html          # HTML marcado con data-edit / data-list (valores por defecto)
+│   ├── styles.css, script.js
+│   ├── assets/             # Fotos originales
+│   └── _edit/              # Modo edición (editor.js, editor.css) — solo se usa en /admin
+├── src/                    # Cloudflare Worker (worker, auth, page, api, login)
+├── scripts/                # seed.mjs, hash-password.mjs, configurar-db.mjs, test.mjs
+├── schema.sql              # Tablas D1: contenido, imagenes, listas, sesiones
+├── wrangler.toml           # Configuración de Cloudflare
+├── GUIA.md                 # Guía paso a paso (instalar, probar, publicar)
+├── CLIENTE.md              # Instrucciones para el cliente
+└── serve.js                # Servidor estático simple (sin panel; usa npm run dev para todo)
 ```
 
 ---
 
-## 🚀 Despliegue en GitHub Pages
+## 🚀 Panel de edición y despliegue
 
-Este proyecto está construido con HTML5, CSS3 puro y JavaScript moderno (sin dependencias complejas ni frameworks pesados), por lo que se puede publicar inmediatamente en **GitHub Pages**:
+El sitio corre en **Cloudflare Workers + D1** (gratis, sin tarjeta). El cliente edita textos, fotos y listas entrando a `/admin`.
 
-1. Ve a **Settings** en tu repositorio de GitHub.
-2. En la sección **Pages** (menú izquierdo).
-3. En **Branch**, selecciona `main` y la carpeta `/ (root)`.
-4. Haz clic en **Save**. ¡Tu sitio estará en línea en un par de minutos!
+Todo el procedimiento (instalación, pruebas locales, secrets, despliegue y lista de pruebas) está en **[GUIA.md](GUIA.md)**. Lo que debe saber el cliente está en **[CLIENTE.md](CLIENTE.md)**.
+
+Resumen: `npm install` → `npm run db:schema:local && npm run seed:local && npm run clave:dev` → `npm run dev`.
 
 ---
 

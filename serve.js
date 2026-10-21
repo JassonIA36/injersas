@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 3456;
-const ROOT = __dirname;
+// Sirve solo los archivos estaticos de public/ (sin panel de edicion). Para el sitio completo: npm run dev
+const ROOT = path.join(__dirname, 'public');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
